@@ -1,0 +1,34 @@
+nav > ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav > ul > li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.div_nav {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+section {
+    padding: 15px;
+    background: #cecece;
+    border: 1px solid black;
+    border-radius: 10px;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+input, select, option {
+    height: 30px;
+    border-radius: 7px;
+}
+
+select, option {
+    width: 170px;
+}

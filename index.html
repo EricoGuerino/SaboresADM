@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <link rel="stylesheet" href="css/estilos.css"/>
+        <script src="js/Connection.js"></script>
+        <script src="js/Builder.js"></script>
+        <script src="js/Navigation.js"></script>
+    </head>
+    <body>
+        <header>
+            <div style="width: 100%;">
+                <img src="images/sabores_logo.jpg" style="width: 100%;height: 250px;"/>
+            </div>
+            <div align="center" class="div_nav">
+                <nav>
+                    <ul>
+                        <li><a id="nav_home" onclick="javascript:navigateToHome();" href="#">Home</a></li>
+                        |&nbsp;
+                        <li><a id="nav_prod" onclick="javascript:navigateToProdutos();" href="#">Produtos</a></li>
+                        |&nbsp; 
+                        <li><a id="nav_cat"  onclick="javascript:navigateToCategorias();" href="#">Categorias</a></li>
+                        |&nbsp; 
+                        <li><a id="nav_fab"  onclick="javascript:navigateToFabricantes();" href="#">Fabricantes</a></li>
+                        |&nbsp; 
+                        <li><a id="nav_est"  onclick="javascript:navigateToEstoque();" href="#">Estoque</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <br/>
+        <section>
+            <div id="conteudo">
+                Sabores Naturais! Pagina de Administração do Sistema!!!
+            </div>
+            <br/>
+        </section>
+        <div id="hidden_retorno" style="visibility: hidden;"></div>
+        <footer>
+
+        </footer>
+    </body>
+</html>
