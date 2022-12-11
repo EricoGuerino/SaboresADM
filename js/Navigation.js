@@ -30,7 +30,34 @@ function navigateToEstoque() {
     var id="nav_est";
     var conteudo = document.getElementById("conteudo");
     conteudo.innerHTML = '';
-    conteudo.innerHTML = 'Em breve!!!';
+    conteudo.appendChild(builderTitulo('Controle de Estoque'));
+    conteudo.appendChild(builderEstoque());
+    conteudo.appendChild(builderButtonCriarNovo('Alterar Estoque', 'javascript:alterarEstoque()'));
+}
+function navigateToClientes() { 
+    var id="nav_cli";
+    var conteudo = document.getElementById("conteudo");
+    conteudo.innerHTML = '';
+    conteudo.appendChild(builderTitulo('Lista de Clientes'));
+    conteudo.appendChild(builderClientes());
+    //conteudo.appendChild(builderButtonCriarNovo('Alterar Estoque', 'javascript:alterarEstoque()'));
+}
+function navigateToCompras() { 
+    var id="nav_com";
+    var conteudo = document.getElementById("conteudo");
+    conteudo.innerHTML = '';
+    conteudo.appendChild(builderTitulo('Compras Realizadas'));
+    conteudo.appendChild(builderCompras());
+    //conteudo.appendChild(builderButtonCriarNovo('Alterar Estoque', 'javascript:alterarEstoque()'));
+}
+
+function navigateToCatalogo() {
+    var id="nav_com";
+    var conteudo = document.getElementById("conteudo");
+    conteudo.innerHTML = '';
+    conteudo.appendChild(builderTitulo('Gerar Catálogo'));
+    conteudo.appendChild(builderCatalogo());
+    //conteudo.appendChild(builderButtonCriarNovo('Alterar Estoque', 'javascript:alterarEstoque()'));
 }
 
 function navigateToNovaCategoria() {
@@ -73,4 +100,18 @@ function navigateToProduto(produto,acao) {
     conteudo.innerHTML = '';
     conteudo.appendChild(builderTitulo(acao == 'editar' ? 'Alterar Produto' : (acao == 'exibir' ? 'Exibir Produto' : "Produto")));
     conteudo.appendChild(builderEditarProduto(produto,acao));
+}
+
+function navigateToImagemProduto(produto) {
+    var conteudo = document.getElementById("conteudo");
+    conteudo.innerHTML = '';
+    conteudo.appendChild(builderTitulo("Incluir / Alterar Imagens"));
+    conteudo.appendChild(builderImagens(produto));
+}
+
+function navigateToCliente(idCliente) {
+    var conteudo = document.getElementById("conteudo");
+    conteudo.innerHTML = '';
+    conteudo.appendChild(builderTitulo("Dados Cliente"));
+    conteudo.appendChild(builderCliente(idCliente));
 }

@@ -3,16 +3,16 @@
 <html>
     <head>
         <meta charset = "UTF-8">
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <link rel="stylesheet" href="css/estilos.css"/>
         <script src="js/Connection.js"></script>
         <script src="js/Builder.js"></script>
         <script src="js/Navigation.js"></script>
+        <script src="js/Funcoes.js"></script>
     </head>
     <body>
         <header>
-            <div style="width: 100%;">
-                <img src="images/sabores_logo.jpg" style="width: 100%;height: 250px;"/>
+            <div align="center" style="width: 100%;">
+                <img src="images/sabores_logo.jpg" style="height: 60%;"/>
             </div>
             <div align="center" class="div_nav">
                 <nav>
@@ -26,6 +26,12 @@
                         <li><a id="nav_fab"  onclick="javascript:navigateToFabricantes();" href="#">Fabricantes</a></li>
                         |&nbsp; 
                         <li><a id="nav_est"  onclick="javascript:navigateToEstoque();" href="#">Estoque</a></li>
+                        |&nbsp; 
+                        <li><a id="nav_cli"  onclick="javascript:navigateToClientes();" href="#">Clientes</a></li>
+                        |&nbsp; 
+                        <li><a id="nav_com"  onclick="javascript:navigateToCompras();" href="#">Compras</a></li>
+                        |&nbsp; 
+                        <li id="li_funcoes"><a id="nav_fun"  onclick="javascript:navigateToFuncoes();" href="#" onmouseover="javascript:builderMenuFuncoesMouseOver();">Funções</a></li>
                     </ul>
                 </nav>
             </div>
