@@ -1256,6 +1256,7 @@ function builderCatalogo() {
         checkbox.type = 'checkbox';
         checkbox.id = 'cat_check_'+categorias[i].id;
         checkbox.name = 'cat_check';
+        checkbox.value = categorias[i].id;
         checkbox.style.height = '18px';
         checkbox.style.width = '18px';
         divCategorias.appendChild(checkbox);
@@ -1269,6 +1270,7 @@ function builderCatalogo() {
         checkbox.type = 'checkbox';
         checkbox.id = 'fab_check_'+fabricantes[j].id;
         checkbox.name = 'fab_check';
+        checkbox.value = fabricantes[j].id;
         checkbox.style.height = '18px';
         checkbox.style.width = '18px';
         divFabricantes.appendChild(checkbox);
@@ -1282,6 +1284,7 @@ function builderCatalogo() {
         checkbox.type = 'checkbox';
         checkbox.id = 'prod_check_'+produtos[k].id;
         checkbox.name = 'prod_check';
+        checkbox.value = produtos[k].id;
         checkbox.style.height = '18px';
         checkbox.style.width = '18px';
         divProdutos.appendChild(checkbox);

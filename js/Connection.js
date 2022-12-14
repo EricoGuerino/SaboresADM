@@ -9,121 +9,148 @@ const BASE_URL_CLIENTES = producao ? 'http://www.erico1916.c41.integrator.host:1
 const BASE_URL_COMPRAS = producao ? 'http://www.erico1916.c41.integrator.host:10500/' : 'http://localhost:8380/';
 const BASE_URL_SERVICOS = producao ? '' : 'http://localhost:8580/';
 
-function listarProdutos() {
+function wsutils(method, url, body) {
     const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_PRODUTOS+"produtos", false);
-    conn.send();
-    let resposta = conn.responseText
+    conn.open(POST, BASE_URL_SERVICOS+"servicos", false);
+    conn.setRequestHeader('content-type','application/json');
+    let _body = '';
+    if (body != null && body != '' && body != 'undefined') {
+        _body = ', "body":['+body+']';
+    }
+    let jsonTxt = '{'+'"method":"'+method+'", "url":"'+url+'"'+_body+'}';
+    console.log(jsonTxt);
+    let jsonObj = JSON.parse(jsonTxt);
+    conn.send(JSON.stringify(jsonObj));
+    return conn.responseText;
+}
+
+function listarProdutos() {
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_PRODUTOS+"produtos", false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_PRODUTOS+"produtos",'');
     console.log(resposta);
     
     return resposta;
 }
 
 function listarCategorias() {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_FILTROS+"categorias", false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_FILTROS+"categorias", false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_FILTROS+"categorias",'');
     console.log(resposta);
     
     return resposta;
 }
 
 function listarFabricantes() {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_FILTROS+"fabricantes", false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_FILTROS+"fabricantes", false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_FILTROS+"fabricantes",'');
     console.log(resposta);
     
     return resposta;
 }
 
 function listarEstoque() {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_PRODUTOS+"estoque/controle", false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_PRODUTOS+"estoque/controle", false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_PRODUTOS+"estoque/controle",'');
     console.log(resposta);
     
     return resposta;
 }
 
 function listarClientes() {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_CLIENTES+"clientes", false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_CLIENTES+"clientes", false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_CLIENTES+"clientes",'');
     console.log(resposta);
     
     return JSON.parse(resposta);
 }
 
 function listarCompras() {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_COMPRAS+"compras", false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_COMPRAS+"compras", false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_COMPRAS+"compras",'');
     console.log(resposta);
     
     return JSON.parse(resposta);
 }
 
 function obterProduto(id) {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_PRODUTOS+"produtos/"+id, false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_PRODUTOS+"produtos/"+id, false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_PRODUTOS+"produtos/"+id,'');
     console.log(resposta);
     
     return resposta;
 }
 
 function obterFabricante(id) {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_FILTROS+"fabricantes/"+id, false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_FILTROS+"fabricantes/"+id, false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_FILTROS+"fabricantes/"+id,'');
     console.log(resposta);
     
     return resposta;
 }
 
 function obterCategoria(id) {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_FILTROS+"categorias/"+id, false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_FILTROS+"categorias/"+id, false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_FILTROS+"categorias/"+id,'');
     console.log(resposta);
     
     return resposta;
 }
 
 function obterCliente(id) {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_CLIENTES+"clientes/"+id, false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_CLIENTES+"clientes/"+id, false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_CLIENTES+"clientes/"+id,'');
     console.log(resposta);
     
     return JSON.parse(resposta);
 }
 
 function obterCidade(id) {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_CLIENTES+"clientes/endereco/cidade/"+id, false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_CLIENTES+"clientes/endereco/cidade/"+id, false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_CLIENTES+"clientes/endereco/cidade/"+id,'');
     console.log(resposta);
     
     return JSON.parse(resposta);
 }
 
 function obterEstado(id) {
-    const conn = new XMLHttpRequest();
-    conn.open(GET, BASE_URL_CLIENTES+"clientes/endereco/estado/"+id, false);
-    conn.send();
-    let resposta = conn.responseText
+    //const conn = new XMLHttpRequest();
+    //conn.open(GET, BASE_URL_CLIENTES+"clientes/endereco/estado/"+id, false);
+    //conn.send();
+    //let resposta = conn.responseText
+    let resposta = wsutils(GET,BASE_URL_CLIENTES+"clientes/endereco/estado/"+id,'');
     console.log(resposta);
     
     return JSON.parse(resposta);
@@ -162,10 +189,10 @@ function criarAlterarCategoria(httpMethod, id) {
     }
     conn.open(obterHttpMethod(httpMethod), path, false);
     conn.setRequestHeader('content-type','application/json')
-    
     conn.send(prepararJsonCategoria());
-
     let resposta = conn.responseText
+    //let resposta = wsutils(obterHttpMethod(httpMethod),path,prepararJsonCategoria());
+
     console.log(resposta);
 
     return navigateToCategorias();
@@ -238,6 +265,9 @@ function criarAlterarProduto(httpMethod,id) {
 
     let resposta = conn.responseText;
     console.log(resposta);
+
+    let json = JSON.parse(resposta);
+    if (json)
 
     return navigateToProdutos();
 }
@@ -510,7 +540,6 @@ function prepararJsonCatalogo() {
     let jsonObj = JSON.parse(jsonTxt);
 
     return JSON.stringify(jsonObj);
-
 
 }
 
